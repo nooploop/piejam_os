@@ -1,0 +1,16 @@
+config BR2_PACKAGE_PIEJAM
+	bool "piejam"
+	depends on BR2_INSTALL_LIBSTDCPP
+	select BR2_PACKAGE_FMT
+	select BR2_PACKAGE_BOOST
+	select BR2_PACKAGE_QT5
+	select BR2_PACKAGE_QT5BASE_GUI
+	select BR2_PACKAGE_QT5BASE_EGLFS
+	select BR2_PACKAGE_QT5BASE_PNG
+	select BR2_PACKAGE_QT5QUICKCONTROLS2
+	select BR2_PACKAGE_JSON_FOR_MODERN_CPP
+	help
+	  PieJam's main application
+
+comment "piejam needs a toolchain w/ C++"
+	depends on !BR2_INSTALL_LIBSTDCPP
