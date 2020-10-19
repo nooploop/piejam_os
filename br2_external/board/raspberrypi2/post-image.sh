@@ -9,11 +9,6 @@ echo ">> Modify cmdline.txt"
 CMDLINE_TXT="$BINARIES_DIR/rpi-firmware/cmdline.txt"
 echo "root=/dev/mmcblk0p2 rootwait rootfstype=ext4 console=tty2 isolcpus=1,3 nohz_full=3 quiet loglevel=0 vt.global_cursor_default=0" > "$CMDLINE_TXT"
 
-echo ">> Modify config.txt"
-CONFIG_TXT="$BINARIES_DIR/rpi-firmware/config.txt"
-
-echo "disable_splash=1" >> $CONFIG_TXT
-
 ################################################################################
 
 BOARD_DIR="$(dirname $0)"
@@ -34,6 +29,7 @@ dtoverlay=pi3-miniuart-bt
 __EOF__
 		fi
 		;;
+
 		--aarch64)
 		# Run a 64bits kernel (armv8)
 		sed -e '/^kernel=/s,=.*,=Image,' -i "${BINARIES_DIR}/rpi-firmware/config.txt"
@@ -44,7 +40,6 @@ __EOF__
 arm_64bit=1
 __EOF__
 		fi
-
 		# Enable uart console
 		if ! grep -qE '^enable_uart=1' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
 			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
@@ -54,6 +49,16 @@ enable_uart=1
 __EOF__
 		fi
 		;;
+
+		--disable-splash)
+		if ! grep -qE '^disable_splash=1' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+
+disable_splash=1
+__EOF__
+		fi
+		;;
+
 		--gpu_mem_256=*|--gpu_mem_512=*|--gpu_mem_1024=*)
 		# Set GPU memory
 		gpu_mem="${arg:2}"
