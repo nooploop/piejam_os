@@ -15,3 +15,14 @@ config BR2_PACKAGE_PIEJAM
 
 comment "piejam needs a toolchain w/ C++"
 	depends on !BR2_INSTALL_LIBSTDCPP
+
+
+if BR2_PACKAGE_PIEJAM
+
+config BR2_PACKAGE_PIEJAM_BOOT_INTO_APP
+	bool "boot into app"
+	default y
+	help
+	  Boot into application
+
+endif
