@@ -1,1 +1,2 @@
+source "$BR2_EXTERNAL_PIEJAM_PATH/package/benchmark/Config.in"
 source "$BR2_EXTERNAL_PIEJAM_PATH/package/piejam/Config.in"

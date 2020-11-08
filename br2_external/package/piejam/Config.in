@@ -25,4 +25,11 @@ config BR2_PACKAGE_PIEJAM_BOOT_INTO_APP
 	help
 	  Boot into application
 
+config BR2_PACKAGE_PIEJAM_BENCHMARKS
+	bool "install PieJam benchmarks"
+	default n
+	select BR2_PACKAGE_BENCHMARK
+	help
+	  Build and install Piejam benchmarks
+
 endif
