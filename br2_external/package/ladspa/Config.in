@@ -1,0 +1,4 @@
+config BR2_PACKAGE_LADSPA
+	bool "LADSPA"
+	help
+	  LADSPA C header
