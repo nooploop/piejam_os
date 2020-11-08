@@ -2,7 +2,7 @@ config BR2_PACKAGE_BENCHMARK
 	bool "benchmark"
 	depends on BR2_INSTALL_LIBSTDCPP
 	help
-	  PieJam's main application
+	  Google benchmark
 
 comment "benchmark needs a toolchain w/ C++"
 	depends on !BR2_INSTALL_LIBSTDCPP
