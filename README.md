@@ -6,8 +6,7 @@ It's a minimal Linux system which starts PieJam directly after boot.
 ## Supported devices
 
 #### SoC
-* Raspberry Pi 2B (minimum)
-* (Raspberry Pi 3/4 in the future)
+* Raspberry Pi 2B
 
 #### Sound Cards
 * All USB ones should work
