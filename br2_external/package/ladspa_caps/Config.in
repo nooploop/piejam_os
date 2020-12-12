@@ -1,0 +1,8 @@
+if BR2_PACKAGE_LADSPA
+
+config BR2_PACKAGE_LADSPA_CAPS
+	bool "CAPS LADSPA plugins"
+	help
+	  CAPS LADSPA plugins
+
+endif

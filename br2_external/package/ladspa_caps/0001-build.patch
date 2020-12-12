@@ -1,0 +1,15 @@
+diff -Naur caps-0.9.26/Makefile caps-0.9.26_patched/Makefile
+--- caps-0.9.26/Makefile	2018-10-18 09:17:36.000000000 +0200
++++ caps-0.9.26_patched/Makefile	2020-12-08 18:20:34.732412384 +0100
+@@ -13,8 +13,9 @@
+ 
+ -include defines.make
+ 
+-CFLAGS += $(OPTS) $(_CFLAGS)
+-LDFLAGS += $(_LDFLAGS) $(CFLAGS)
++override CFLAGS += $(OPTS) $(_CFLAGS)
++override CXXFLAGS += $(CFLAGS)
++override LDFLAGS += $(_LDFLAGS) $(CFLAGS)
+ 
+ PLUG = caps
+ 
