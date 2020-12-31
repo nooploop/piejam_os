@@ -1,0 +1,21 @@
+diff -Naur tap-plugins/Makefile tap-plugins-patched/Makefile
+--- tap-plugins/Makefile	2020-12-23 17:52:01.740484717 +0100
++++ tap-plugins-patched/Makefile	2020-12-23 17:54:51.215763057 +0100
+@@ -34,15 +34,8 @@
+ 
+ # GENERAL
+ 
+-OS := $(shell uname -s)
+-
+-CC      = gcc
+-CFLAGS  = -I. -O3 -Wall -fomit-frame-pointer -funroll-loops -ffast-math -c -fPIC -DPIC
+-ifeq ($(OS),Darwin)
+-LDFLAGS = -nostartfiles -shared -Wl,-install_name,symbolic -lc -lm
+-else
+-LDFLAGS = -nostartfiles -shared -Wl,-Bsymbolic -lc -lm -lrt
+-endif
++override CFLAGS += -I. -O3 -Wall -fomit-frame-pointer -funroll-loops -ffast-math -c -fPIC -DPIC
++override LDFLAGS += -nostartfiles -shared -Wl,-Bsymbolic -lc -lm -lrt
+ MODULES = $(wildcard *.c)
+ 
+ all: $(MODULES:%.c=%.so)
