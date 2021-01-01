@@ -2,6 +2,7 @@ if BR2_PACKAGE_LADSPA
 
 config BR2_PACKAGE_LADSPA_CAPS
 	bool "CAPS LADSPA plugins"
+	default y
 	help
 	  CAPS LADSPA plugins
 
