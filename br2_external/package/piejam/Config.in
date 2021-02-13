@@ -34,4 +34,10 @@ config BR2_PACKAGE_PIEJAM_BENCHMARKS
 	help
 	  Build and install Piejam benchmarks
 
+config BR2_PACKAGE_PIEJAM_TEST_APPS
+	bool "install PieJam test apps"
+	default n
+	help
+	  Build and install Piejam test apps
+
 endif
