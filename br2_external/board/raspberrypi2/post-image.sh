@@ -7,7 +7,7 @@ set -e
 echo ">> Modify cmdline.txt"
 
 CMDLINE_TXT="$BINARIES_DIR/rpi-firmware/cmdline.txt"
-echo "root=/dev/mmcblk0p2 rootwait rootfstype=ext4 console=tty2 isolcpus=1,2,3 nohz_full=1,2,3 quiet loglevel=0 vt.global_cursor_default=0" > "$CMDLINE_TXT"
+echo "root=/dev/mmcblk0p2 rootwait rootfstype=ext4 console=tty2 quiet loglevel=0 vt.global_cursor_default=0" > "$CMDLINE_TXT"
 
 ################################################################################
 
