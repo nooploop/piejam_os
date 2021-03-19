@@ -7,6 +7,7 @@ It's a minimal Linux system which starts PieJam directly after boot.
 
 #### SoC
 * Raspberry Pi 2B
+* Raspberry Pi 3B
 
 #### Sound Cards
 * All USB ones should work
@@ -16,8 +17,14 @@ It's a minimal Linux system which starts PieJam directly after boot.
 
 ## Build
 
+#### Raspberry Pi 2B
 ```
 make raspberrypi2
+```
+
+#### Raspberry Pi 3B
+```
+make raspberrypi3
 ```
 
 ## Installation
