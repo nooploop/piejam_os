@@ -15,6 +15,8 @@ config BR2_PACKAGE_PIEJAM
 	select BR2_PACKAGE_JSON_FOR_MODERN_CPP
 	select BR2_PACKAGE_LADSPA
 	select BR2_PACKAGE_SPDLOG
+	select BR2_PACKAGE_FFTW
+	select BR2_PACKAGE_FFTW_SINGLE
 	help
 	  PieJam's main application
 
