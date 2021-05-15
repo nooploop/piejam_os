@@ -1,0 +1,12 @@
+diff -purN fftw-single-3.3.8.orig/configure fftw-single-3.3.8/configure
+--- fftw-single-3.3.8.orig/configure	2021-05-15 20:38:05.690878060 +0200
++++ fftw-single-3.3.8/configure	2021-05-15 20:38:28.587836495 +0200
+@@ -3926,7 +3926,7 @@ fi
+ 
+ # Check whether --enable-neon was given.
+ if test "${enable_neon+set}" = set; then :
+-  enableval=$enable_neon; have_neon=$enableval
++  have_neon=no
+ else
+   have_neon=no
+ fi
