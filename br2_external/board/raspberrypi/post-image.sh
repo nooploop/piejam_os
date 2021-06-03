@@ -50,6 +50,15 @@ __EOF__
 		fi
 		;;
 
+		--enable-fkms)
+		if ! grep -qE '^dtoverlay=vc4-fkms-v3d' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+
+dtoverlay=vc4-fkms-v3d,cma-64
+__EOF__
+		fi
+		;;
+
 		--disable-splash)
 		if ! grep -qE '^disable_splash=1' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
 			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
