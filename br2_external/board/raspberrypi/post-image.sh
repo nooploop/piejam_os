@@ -54,7 +54,8 @@ __EOF__
 		if ! grep -qE '^dtoverlay=vc4-fkms-v3d' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
 			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
 
-dtoverlay=vc4-fkms-v3d,cma-64
+max_framebuffers=2
+dtoverlay=vc4-fkms-v3d,cma-128
 __EOF__
 		fi
 		;;
