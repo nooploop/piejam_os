@@ -60,6 +60,15 @@ __EOF__
 		fi
 		;;
 
+		--disable-bt)
+		if ! grep -qE '^dtoverlay=disable-bt' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
+			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
+
+dtoverlay=disable-bt
+__EOF__
+		fi
+		;;
+
 		--disable-splash)
 		if ! grep -qE '^disable_splash=1' "${BINARIES_DIR}/rpi-firmware/config.txt"; then
 			cat << __EOF__ >> "${BINARIES_DIR}/rpi-firmware/config.txt"
