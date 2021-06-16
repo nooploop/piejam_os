@@ -20,7 +20,7 @@ BR2_SYSTEM_BIN_SH_BASH=y
 BR2_SYSTEM_DHCP="eth0"
 BR2_ROOTFS_OVERLAY="$(BR2_EXTERNAL_PIEJAM_PATH)/board/raspberrypi3/rootfs-overlay"
 BR2_ROOTFS_POST_IMAGE_SCRIPT="$(BR2_EXTERNAL_PIEJAM_PATH)/board/raspberrypi3/post-image.sh"
-BR2_ROOTFS_POST_SCRIPT_ARGS="--disable-splash --gpu_mem_256=64 --gpu_mem_512=64 --gpu_mem_1024=64 --disable-bt"
+BR2_ROOTFS_POST_SCRIPT_ARGS="--disable-splash --disable-bt"
 BR2_LINUX_KERNEL=y
 BR2_LINUX_KERNEL_CUSTOM_TARBALL=y
 BR2_LINUX_KERNEL_CUSTOM_TARBALL_LOCATION="$(call github,raspberrypi,linux,rpi-4.19.y)/linux-rpi-4.19.y.tar.gz"
