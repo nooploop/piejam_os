@@ -1,4 +1,4 @@
 #!/bin/sh
 
 modprobe amba-pl011
-setsid getty ttyAMA0 115200 vt100
+setsid getty ttyAMA0 115200 vt100 &
