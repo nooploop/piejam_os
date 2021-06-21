@@ -34,6 +34,8 @@ config BR2_PACKAGE_PIEJAM_BOOT_INTO_APP
 	help
 	  Boot into application
 
+if !BR2_PACKAGE_PIEJAM_BOOT_INTO_APP
+
 config BR2_PACKAGE_PIEJAM_BENCHMARKS
 	bool "install PieJam benchmarks"
 	default n
@@ -46,5 +48,15 @@ config BR2_PACKAGE_PIEJAM_TEST_APPS
 	default n
 	help
 	  Build and install Piejam test apps
+
+config BR2_PACKAGE_PIEJAM_TESTS
+	bool "install PieJam tests"
+	default n
+	select BR2_PACKAGE_GTEST
+	select BR2_PACKAGE_GTEST_GMOCK
+	help
+	  Build and install Piejam tests
+
+endif
 
 endif
