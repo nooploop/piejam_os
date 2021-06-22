@@ -7,6 +7,7 @@ parted -s /dev/mmcblk0 resizepart 3 100%
 mkfs.ext2 -q -F -L piejam /dev/mmcblk0p3
 
 # mount
+mkdir /piejam
 echo "/dev/mmcblk0p3	/piejam		ext2	rw,defaults	0	2" >> /etc/fstab
 mount /dev/mmcblk0p3 /piejam
 
