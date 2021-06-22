@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PIEJAM_VERSION = v0.6.0
+PIEJAM_VERSION = v0.7.0
 PIEJAM_SITE = https://github.com/nooploop/piejam.git
 PIEJAM_SITE_METHOD = git
 PIEJAM_GIT_SUBMODULES = YES
