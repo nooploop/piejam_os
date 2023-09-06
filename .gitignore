@@ -71,4 +71,5 @@ Thumbs.db
 *.exe
 
 *.txt.user
-/br2_*/output/
+/br2_external/output/
+/br2_external/local.mk
