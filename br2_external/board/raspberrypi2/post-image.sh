@@ -1,0 +1,1 @@
+../raspberrypi-common/post-image.sh

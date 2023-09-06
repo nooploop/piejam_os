@@ -1,0 +1,6 @@
+#!/bin/sh
+
+piejam_setup
+
+# remove the script, because it's a one time action on first boot
+rm "/etc/init.d/`basename $0`"
