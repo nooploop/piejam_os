@@ -1,0 +1,11 @@
+start_file=start4.elf
+fixup_file=fixup4.dat
+kernel=zImage
+disable_overscan=1
+gpu_mem_1024=128
+disable_splash=1
+
+dtoverlay=disable-bt
+
+max_framebuffers=2
+dtoverlay=vc4-fkms-v3d,cma-128

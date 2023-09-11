@@ -1,0 +1,8 @@
+start_file=start.elf
+fixup_file=fixup.dat
+kernel=zImage
+disable_overscan=1
+gpu_mem_1024=128
+disable_splash=1
+
+dtoverlay=disable-bt

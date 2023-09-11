@@ -28,14 +28,6 @@ comment "piejam needs a toolchain w/ C++"
 
 if BR2_PACKAGE_PIEJAM
 
-config BR2_PACKAGE_PIEJAM_BOOT_INTO_APP
-	bool "boot into app"
-	default y
-	help
-	  Boot into application
-
-if !BR2_PACKAGE_PIEJAM_BOOT_INTO_APP
-
 config BR2_PACKAGE_PIEJAM_BENCHMARKS
 	bool "install PieJam benchmarks"
 	default n
@@ -56,7 +48,5 @@ config BR2_PACKAGE_PIEJAM_TESTS
 	select BR2_PACKAGE_GTEST_GMOCK
 	help
 	  Build and install Piejam tests
-
-endif
 
 endif
