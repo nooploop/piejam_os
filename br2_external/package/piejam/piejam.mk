@@ -9,7 +9,7 @@ PIEJAM_SITE = https://github.com/nooploop/piejam.git
 PIEJAM_SITE_METHOD = git
 PIEJAM_GIT_SUBMODULES = YES
 PIEJAM_LICENSE = GPL-3.0-or-later
-PIEJAM_LICENSE_FILES = LICENSE.md LICENSES/Apache-2.0.txt LICENSES/CC0-1.0.txt LICENSES/CC-BY-4.0.txt LICENSES/GPL-3.0-or-later.txt
+PIEJAM_LICENSE_FILES = LICENSE.md LICENSES/Apache-2.0.txt LICENSES/CC0-1.0.txt LICENSES/GPL-3.0-or-later.txt
 
 define PIEJAM_ADD_INITTAB_ENTRY
 	if ! grep piejam $(TARGET_DIR)/etc/inittab ; then $(SED) '/rcS/a ::once:\/usr\/bin\/piejam' $(TARGET_DIR)/etc/inittab ; fi
