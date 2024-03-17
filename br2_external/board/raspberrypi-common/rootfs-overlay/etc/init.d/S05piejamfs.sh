@@ -21,10 +21,6 @@ start()
         psplash-write "MSG "
     fi
 
-    if [ ! -d "/piejam/" ] ; then
-        mkdir /piejam
-    fi
-
     mount -t ext4 -o rw,defaults,noatime /dev/mmcblk0p3 /piejam
 }
 
