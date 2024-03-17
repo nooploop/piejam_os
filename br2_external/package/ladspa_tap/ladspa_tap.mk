@@ -4,8 +4,8 @@
 #
 ################################################################################
 
-LADSPA_TAP_VERSION = v1.0.1
-LADSPA_TAP_SITE = https://github.com/tomszilagyi/tap-plugins
+LADSPA_TAP_VERSION = 85640223
+LADSPA_TAP_SITE = https://git.hq.sig7.se/tap-plugins.git
 LADSPA_TAP_SITE_METHOD = git
 LADSPA_TAP_LICENSE = GPL-2.0-only
 LADSPA_TAP_LICENSE_FILES = COPYING
