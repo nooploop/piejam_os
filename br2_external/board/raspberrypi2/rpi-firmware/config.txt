@@ -4,3 +4,5 @@ kernel=zImage
 disable_overscan=1
 gpu_mem_1024=128
 disable_splash=1
+
+dtoverlay=rpi-backlight
