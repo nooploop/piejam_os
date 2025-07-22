@@ -1,0 +1,78 @@
+--- rpi-userland/CMakeLists.txt	2025-07-21 21:41:09.217019965 +0200
++++ rpi-userland-patched/CMakeLists.txt	2025-07-21 21:44:05.299652440 +0200
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ project(vmcs_host_apps)
+ 
+--- rpi-userland/helpers/dtoverlay/CMakeLists.txt	2025-07-21 21:41:09.227447370 +0200
++++ rpi-userland-patched/helpers/dtoverlay/CMakeLists.txt	2025-07-21 21:44:14.613783261 +0200
+@@ -6,7 +6,7 @@
+ # CMake build file for dtoverlay library.
+ # =============================================================================
+ 
+-cmake_minimum_required (VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ include_directories (${VIDEOCORE_ROOT}
+                      ${VIDEOCORE_ROOT}/helpers
+--- rpi-userland/host_applications/android/apps/vidtex/CMakeLists.txt	2025-07-21 21:41:09.229040711 +0200
++++ rpi-userland-patched/host_applications/android/apps/vidtex/CMakeLists.txt	2025-07-21 21:44:05.299652440 +0200
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ SET(COMPILE_DEFINITIONS -Wall)
+ 
+--- rpi-userland/host_applications/linux/apps/dtmerge/CMakeLists.txt	2025-07-21 21:41:09.229605198 +0200
++++ rpi-userland-patched/host_applications/linux/apps/dtmerge/CMakeLists.txt	2025-07-21 21:44:05.299652440 +0200
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ get_filename_component (VIDEOCORE_ROOT ../../../.. ABSOLUTE)
+ include (${VIDEOCORE_ROOT}/makefiles/cmake/global_settings.cmake)
+--- rpi-userland/host_applications/linux/apps/dtoverlay/CMakeLists.txt	2025-07-21 21:41:09.229767364 +0200
++++ rpi-userland-patched/host_applications/linux/apps/dtoverlay/CMakeLists.txt	2025-07-21 21:44:05.475654913 +0200
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ get_filename_component (VIDEOCORE_ROOT ../../../.. ABSOLUTE)
+ include (${VIDEOCORE_ROOT}/makefiles/cmake/global_settings.cmake)
+--- rpi-userland/host_applications/linux/apps/gencmd/CMakeLists.txt	2025-07-21 21:41:09.230403817 +0200
++++ rpi-userland-patched/host_applications/linux/apps/gencmd/CMakeLists.txt	2025-07-21 21:44:05.299652440 +0200
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ if (WIN32)
+    set(VCOS_PLATFORM win32)
+--- rpi-userland/host_applications/linux/apps/smem/CMakeLists.txt	2025-07-21 21:41:09.261438854 +0200
++++ rpi-userland-patched/host_applications/linux/apps/smem/CMakeLists.txt	2025-07-21 21:44:05.299652440 +0200
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ get_filename_component (VIDEOCORE_ROOT ../../../.. ABSOLUTE)
+ include (${VIDEOCORE_ROOT}/makefiles/cmake/global_settings.cmake)
+--- rpi-userland/interface/vcos/CMakeLists.txt	2025-07-21 21:41:09.278237479 +0200
++++ rpi-userland-patched/interface/vcos/CMakeLists.txt	2025-07-21 21:44:14.613783261 +0200
+@@ -1,4 +1,4 @@
+-cmake_minimum_required (VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ get_filename_component (VIDEOCORE_ROOT "../.." ABSOLUTE)
+ include (${VIDEOCORE_ROOT}/makefiles/cmake/global_settings.cmake)
+--- rpi-userland/middleware/openmaxil/CMakeLists.txt	2025-07-21 21:41:09.282794671 +0200
++++ rpi-userland-patched/middleware/openmaxil/CMakeLists.txt	2025-07-21 21:44:14.613783261 +0200
+@@ -6,7 +6,7 @@
+ # CMake build file for OpenMAX IL.
+ # =============================================================================
+ 
+-cmake_minimum_required (VERSION 2.8)
++cmake_minimum_required(VERSION 3.10)
+ 
+ if (VIDEOCORE_SIMULATION)
+ 
