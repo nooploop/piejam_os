@@ -2,7 +2,6 @@ config BR2_PACKAGE_PIEJAM
 	bool "piejam"
 	default y
 	depends on BR2_INSTALL_LIBSTDCPP
-	select BR2_PACKAGE_FMT
 	select BR2_PACKAGE_BOOST
 	select BR2_PACKAGE_DEJAVU
 	select BR2_PACKAGE_QT5
