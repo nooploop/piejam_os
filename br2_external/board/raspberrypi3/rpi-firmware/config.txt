@@ -1,9 +1,13 @@
 start_file=start.elf
 fixup_file=fixup.dat
-kernel=zImage
+kernel=Image
+gpu_mem=16
 disable_overscan=1
-gpu_mem_1024=128
 disable_splash=1
-
+disable_fw_kms_setup=1
+avoid_warnings=2
+max_framebuffers=2
+dtoverlay=vc4-kms-dsi-7inch
+dtoverlay=vc4-kms-v3d,cma-128,noaudio
 dtoverlay=disable-bt
-dtoverlay=rpi-backlight
+arm_64bit=1
