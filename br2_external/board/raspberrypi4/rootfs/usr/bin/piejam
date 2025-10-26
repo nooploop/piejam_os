@@ -1,0 +1,52 @@
+#!/bin/sh
+
+cd /piejam
+export HOME=/piejam
+
+DSI_CONNECTED=false
+HDMI_CONNECTED=false
+
+# Check if touchscreen input exists (DSI physically present)
+if grep -q "ft5x06" /sys/class/input/event*/device/name 2>/dev/null; then
+    DSI_CONNECTED=true
+    DSI_CARD="/dev/dri/card1"
+    DSI_CONNECTOR="DSI-1"
+fi
+
+# Check HDMI connectors for real "connected" status
+for hdmi in /sys/class/drm/card*-HDMI-A-*; do
+    if [[ -f "$hdmi/status" ]] && grep -q "connected" "$hdmi/status"; then
+        HDMI_CONNECTED=true
+        HDMI_CONNECTOR=$(basename "$hdmi" | cut -d'-' -f2-)
+        HDMI_CARD="/dev/dri/$(basename "$hdmi" | cut -d'-' -f1)"
+        break
+    fi
+done
+
+if $DSI_CONNECTED; then
+    DEVICE="$DSI_CARD"
+    CONNECTOR="$DSI_CONNECTOR"
+elif $HDMI_CONNECTED; then
+    DEVICE="$HDMI_CARD"
+    CONNECTOR="$HDMI_CONNECTOR"
+fi
+
+if $DSI_CONNECTED || $HDMI_CONNECTED; then
+
+# Generate eglfs config
+cat > /piejam/eglfs.json <<EOF
+{
+    "device": "$DEVICE",
+    "hwcursor": false,
+    "outputs": [
+        { "name": "$CONNECTOR", "primary": true }
+    ]
+}
+EOF
+
+    export QT_QPA_EGLFS_KMS_CONFIG=/piejam/eglfs.json
+
+    /usr/bin/piejam_app
+fi
+
+/sbin/halt
