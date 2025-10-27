@@ -1,6 +1,0 @@
-#!/bin/sh
-
-cd /piejam
-QT_QPA_EGLFS_PHYSICAL_WIDTH=155 QT_QPA_EGLFS_PHYSICAL_HEIGHT=86 QT_IM_MODULE=qtvirtualkeyboard HOME=/piejam /usr/bin/piejam_app
-
-/sbin/halt

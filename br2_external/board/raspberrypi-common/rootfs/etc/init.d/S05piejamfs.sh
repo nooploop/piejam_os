@@ -18,7 +18,7 @@ start()
         # create new filesystem
         mkfs.ext4 -L piejam /dev/mmcblk0p3
 
-        psplash-write "MSG "
+        psplash-write "MSG  "
     fi
 
     mount -t ext4 -o rw,defaults,noatime /dev/mmcblk0p3 /piejam

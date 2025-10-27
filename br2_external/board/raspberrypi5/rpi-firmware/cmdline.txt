@@ -1,0 +1,1 @@
+root=/dev/mmcblk0p2 rootwait rootfstype=ext4 quiet console=ttyAMA0,115200 vt.global_cursor_default=0 sdhci.debug_quirks2=4

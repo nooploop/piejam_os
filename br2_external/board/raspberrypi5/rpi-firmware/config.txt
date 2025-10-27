@@ -1,0 +1,9 @@
+kernel=Image
+disable_overscan=1
+disable_splash=1
+disable_fw_kms_setup=1
+avoid_warnings=2
+max_framebuffers=2
+dtoverlay=vc4-kms-dsi-7inch
+dtoverlay=vc4-kms-v3d,cma-128,noaudio
+dtoverlay=uart0
