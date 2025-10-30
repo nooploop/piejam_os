@@ -18,6 +18,7 @@ config BR2_PACKAGE_PIEJAM
 	select BR2_PACKAGE_FFTW
 	select BR2_PACKAGE_FFTW_SINGLE
 	select BR2_PACKAGE_LIBSNDFILE
+	select BR2_PACKAGE_JQ
 	help
 	  PieJam's main application
 

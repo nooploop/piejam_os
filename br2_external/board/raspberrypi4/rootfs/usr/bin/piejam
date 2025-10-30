@@ -3,43 +3,48 @@
 cd /piejam
 export HOME=/piejam
 
-DSI_CONNECTED=false
-HDMI_CONNECTED=false
+dsi_connected=false
+hdmi_connected=false
 
-# Check if touchscreen input exists (DSI physically present)
-if grep -q "ft5x06" /sys/class/input/event*/device/name 2>/dev/null; then
-    DSI_CONNECTED=true
-    DSI_CARD="/dev/dri/card1"
-    DSI_CONNECTOR="DSI-1"
-fi
-
-# Check HDMI connectors for real "connected" status
-for hdmi in /sys/class/drm/card*-HDMI-A-*; do
-    if [[ -f "$hdmi/status" ]] && grep -q "connected" "$hdmi/status"; then
-        HDMI_CONNECTED=true
-        HDMI_CONNECTOR=$(basename "$hdmi" | cut -d'-' -f2-)
-        HDMI_CARD="/dev/dri/$(basename "$hdmi" | cut -d'-' -f1)"
+for dsi in /sys/class/drm/card*-DSI-*; do
+    # Check if touchscreen input exists (DSI physically present)
+    if grep -q -E "ft5x06|Goodix" /sys/class/input/event*/device/name 2>/dev/null; then
+        dsi_base="$(basename "$dsi")"
+        dsi_card="${dsi_base%%-*}"
+        dsi_connector="${dsi_base#*-}"
+        dsi_connected=true
         break
     fi
 done
 
-if $DSI_CONNECTED; then
-    DEVICE="$DSI_CARD"
-    CONNECTOR="$DSI_CONNECTOR"
-elif $HDMI_CONNECTED; then
-    DEVICE="$HDMI_CARD"
-    CONNECTOR="$HDMI_CONNECTOR"
-fi
+# Check HDMI connectors for real "connected" status
+for hdmi in /sys/class/drm/card*-HDMI-A-*; do
+    if [[ -f "$hdmi/status" ]] && grep -q "connected" "$hdmi/status"; then
+        hdmi_base="$(basename "$hdmi")"
+        hdmi_card="${hdmi_base%%-*}"
+        hdmi_connector="${hdmi_base#*-}"
+        hdmi_connected=true
+        break
+    fi
+done
 
-if $DSI_CONNECTED || $HDMI_CONNECTED; then
+if $dsi_connected || $hdmi_connected; then
+
+    if $dsi_connected; then
+        card="$dsi_card"
+        connector="$dsi_connector"
+    elif $hdmi_connected; then
+        card="$hdmi_card"
+        connector="$hdmi_connector"
+    fi
 
 # Generate eglfs config
 cat > /piejam/eglfs.json <<EOF
 {
-    "device": "$DEVICE",
+    "device": "/dev/dri/$card",
     "hwcursor": false,
     "outputs": [
-        { "name": "$CONNECTOR", "primary": true }
+        { "name": "$connector", "primary": true }
     ]
 }
 EOF
