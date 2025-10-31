@@ -3,16 +3,16 @@
 cd /piejam
 export HOME=/piejam
 
-dsi_connected=false
-hdmi_connected=false
+DSI_CONNECTED=false
+HDMI_CONNECTED=false
 
 for dsi in /sys/class/drm/card*-DSI-*; do
     # Check if touchscreen input exists (DSI physically present)
     if grep -q -E "ft5x06|Goodix" /sys/class/input/event*/device/name 2>/dev/null; then
-        dsi_base="$(basename "$dsi")"
-        dsi_card="${dsi_base%%-*}"
-        dsi_connector="${dsi_base#*-}"
-        dsi_connected=true
+        DSI_BASE="$(basename "$dsi")"
+        DSI_CARD="${DSI_BASE%%-*}"
+        DSI_CONNECTOR="${DSI_BASE#*-}"
+        DSI_CONNECTED=true
         break
     fi
 done
@@ -20,31 +20,31 @@ done
 # Check HDMI connectors for real "connected" status
 for hdmi in /sys/class/drm/card*-HDMI-A-*; do
     if [[ -f "$hdmi/status" ]] && grep -q "connected" "$hdmi/status"; then
-        hdmi_base="$(basename "$hdmi")"
-        hdmi_card="${hdmi_base%%-*}"
-        hdmi_connector="${hdmi_base#*-}"
-        hdmi_connected=true
+        HDMI_BASE="$(basename "$hdmi")"
+        HDMI_CARD="${HDMI_BASE%%-*}"
+        HDMI_CONNECTOR="${HDMI_BASE#*-}"
+        HDMI_CONNECTED=true
         break
     fi
 done
 
-if $dsi_connected || $hdmi_connected; then
+if $DSI_CONNECTED || $HDMI_CONNECTED; then
 
-    if $dsi_connected; then
-        card="$dsi_card"
-        connector="$dsi_connector"
-    elif $hdmi_connected; then
-        card="$hdmi_card"
-        connector="$hdmi_connector"
+    if $DSI_CONNECTED; then
+        CARD="$DSI_CARD"
+        CONNECTOR="$DSI_CONNECTOR"
+    elif $HDMI_CONNECTED; then
+        CARD="$HDMI_CARD"
+        CONNECTOR="$HDMI_CONNECTOR"
     fi
 
 # Generate eglfs config
 cat > /piejam/eglfs.json <<EOF
 {
-    "device": "/dev/dri/$card",
+    "device": "/dev/dri/$CARD",
     "hwcursor": false,
     "outputs": [
-        { "name": "$connector", "primary": true }
+        { "name": "$CONNECTOR", "primary": true }
     ]
 }
 EOF
