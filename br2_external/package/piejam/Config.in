@@ -19,6 +19,16 @@ config BR2_PACKAGE_PIEJAM
 	select BR2_PACKAGE_FFTW_SINGLE
 	select BR2_PACKAGE_LIBSNDFILE
 	select BR2_PACKAGE_JQ
+	select BR2_PACKAGE_PARTED
+	select BR2_PACKAGE_RNG_TOOLS
+	select BR2_PACKAGE_HTOP
+	select BR2_PACKAGE_E2FSPROGS
+	select BR2_PACKAGE_PSPLASH
+	select BR2_PACKAGE_RPI_FIRMWARE
+	select BR2_PACKAGE_HOST_DOSFSTOOLS
+	select BR2_PACKAGE_HOST_GENIMAGE
+	select BR2_PACKAGE_HOST_MTOOLS
+	select BR2_PACKAGE_GLIBC_UTILS
 	help
 	  PieJam's main application
 
@@ -34,12 +44,6 @@ config BR2_PACKAGE_PIEJAM_BENCHMARKS
 	select BR2_PACKAGE_BENCHMARK
 	help
 	  Build and install Piejam benchmarks
-
-config BR2_PACKAGE_PIEJAM_TEST_APPS
-	bool "install PieJam test apps"
-	default n
-	help
-	  Build and install Piejam test apps
 
 config BR2_PACKAGE_PIEJAM_TESTS
 	bool "install PieJam tests"
