@@ -28,5 +28,15 @@ raspberrypi4-source: raspberrypi4-builddir
 	make -C br2_external/output/raspberrypi4 source
 
 
+raspberrypi5-builddir:
+	make -C buildroot BR2_EXTERNAL="$(CURDIR)/br2_external" O="$(CURDIR)/br2_external/output/raspberrypi5" raspberrypi5_defconfig
+
+raspberrypi5: raspberrypi5-builddir
+	make -C br2_external/output/raspberrypi5
+
+raspberrypi5-source: raspberrypi5-builddir
+	make -C br2_external/output/raspberrypi5 source
+
+
 clean:
 	rm -rf br2_external/output

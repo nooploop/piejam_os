@@ -9,12 +9,14 @@ It's a minimal Linux system which starts PieJam directly after boot.
 * Raspberry Pi 2B
 * Raspberry Pi 3B
 * Raspberry Pi 4B
+* Raspberry Pi 5B
 
 #### Sound Cards
-* All USB ones should work
+* All USB ones supported by Linux should work
 
 #### Screen
-* Only the official 7" Raspberry Pi touchscreen
+* Official 7" Raspberry Pi touchscreen
+* Official 7" Raspberry Pi touchscreen V2 (only on Pi 4B & 5B)
 
 ## Build
 
@@ -31,6 +33,11 @@ make raspberrypi3
 #### Raspberry Pi 4B
 ```
 make raspberrypi4
+```
+
+#### Raspberry Pi 5B
+```
+make raspberrypi5
 ```
 
 ## Installation
