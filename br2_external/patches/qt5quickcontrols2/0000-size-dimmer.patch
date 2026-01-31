@@ -1,0 +1,16 @@
+diff -purN qt5quickcontrols2-69fea340f8f4c483a9b2889e4e24a4b1b52ebc87/src/quicktemplates2/qquickpopup.cpp qt5quickcontrols2-patched/src/quicktemplates2/qquickpopup.cpp
+--- qt5quickcontrols2-69fea340f8f4c483a9b2889e4e24a4b1b52ebc87/src/quicktemplates2/qquickpopup.cpp	2026-01-31 13:16:52.652990684 +0100
++++ qt5quickcontrols2-patched/src/quicktemplates2/qquickpopup.cpp	2026-01-31 13:16:46.245499411 +0100
+@@ -792,8 +792,10 @@ void QQuickPopupPrivate::resizeOverlay()
+     if (!dimmer)
+         return;
+ 
+-    qreal w = window ? window->width() : 0;
+-    qreal h = window ? window->height() : 0;
++    const QQuickOverlay *overlay = QQuickOverlay::overlay(window);
++
++    qreal w = overlay ? overlay->width() : 0;
++    qreal h = overlay ? overlay->height() : 0;
+     dimmer->setSize(QSizeF(w, h));
+ }
+ 
