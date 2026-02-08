@@ -1,4 +1,4 @@
 [submodule "buildroot"]
 	path = buildroot
-	url = git://git.busybox.net/buildroot
-	shallow = true
+	url = https://git.busybox.net/buildroot
+	shallow = false
