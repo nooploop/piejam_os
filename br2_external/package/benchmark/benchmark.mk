@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-BENCHMARK_VERSION = v1.5.2
+BENCHMARK_VERSION = v1.9.5
 BENCHMARK_SITE = https://github.com/google/benchmark.git
 BENCHMARK_SITE_METHOD = git
 BENCHMARK_GIT_SUBMODULES = YES
